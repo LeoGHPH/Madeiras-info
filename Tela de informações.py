@@ -1,20 +1,25 @@
-
 from eucalipto import Eucalipto
 from pinus import Pinus
+from descricoes import*
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 
 
 
+
 """função de criação de objetos"""
 lista=[]
 
+
+   
 def cadastraMadeira():
-    data=entryData.get()
+   
     tipo=entryTipo.get()
     peso=entryPeso.get()
     preco=entryPreco.get()
+    data=entryData.get()
+    
    
     erro=0
     
@@ -27,7 +32,7 @@ def cadastraMadeira():
 
         if erro==0:
             
-           e=Eucalipto(tipo, peso, preco)
+           e=Eucalipto(tipo, peso, preco, data)
            salvar(e)
            messagebox.showinfo("Cadastro", f"{tipo} Cadastro concluído com sucesso!")
 
@@ -36,7 +41,7 @@ def cadastraMadeira():
            messagebox.showinfo("Erro", "Preencha o cadastro")
            erro=1
         if erro==0:
-           e=Eucalipto(tipo, peso, preco)
+           e=Eucalipto(tipo, peso, preco, data)
            salvar(e)
            messagebox.showinfo("Cadastro", f"{tipo} Cadastro concluído com sucesso!")
 
@@ -44,7 +49,7 @@ def cadastraMadeira():
            messagebox.showinfo("Erro", "Preencha o cadastro")
            erro=1
         if erro==0:
-           e=Eucalipto(tipo, peso, preco)
+           e=Eucalipto(tipo, peso, preco, data)
            salvar(e)
            messagebox.showinfo("Cadastro", f"{tipo} Cadastro concluído com sucesso!")
            lista.append(e)
@@ -65,25 +70,25 @@ def cadastraMadeira():
 
         if erro==0:
            
-           p=Pinus(tipo, peso, preco)
+           p=Pinus(tipo, peso, preco, data)
            salvar(p)
-           messagebox.showinfo("Cadastro", f"{tipo} Cadastro concluído com sucesso!")
+           
 
         if peso=="":
            
            messagebox.showinfo("Erro", "Preencha o cadastro")
            erro=1
         if erro==0:
-            p=Pinus(tipo, peso, preco)
+            p=Pinus(tipo, peso, preco, data)
             salvar(p)
-            messagebox.showinfo("Cadastro", f"{tipo} Cadastro concluído com sucesso!")
+      
 
         if preco=="":
            
            messagebox.showinfo("Erro", "Preencha o cadastro")
            erro=1
         if erro==0:
-           p=Pinus(tipo, peso, preco)
+           p=Pinus(tipo, peso, preco, data)
            salvar(p)
            messagebox.showinfo("Cadastro", f"{tipo} Cadastro concluído com sucesso!")
            lista.append(e)
@@ -96,7 +101,7 @@ def atualizaListabox():
     listbox.delete(0, tk.END)
     for obj in lista:
         listbox.insert(tk.END, obj.mostrar())
-    
+
 
         
 
@@ -135,7 +140,7 @@ label1.grid(row=0, column=0, sticky="w", padx=10)
 entryData=tk.Entry(tab1, font=("", 15))                         
 entryData.grid(row=0, column=1, sticky="nsew", padx=10, pady=5)
 
-label2=tk.Label(tab1, text="Tipo de Madeira", font=("",15))                    #Tipo de madeira
+label2=tk.Label(tab1, text="Tipo de Madeira", font=("",15))                   
 label2.grid(row=1, column=0, sticky="w", padx=10)
 
 entryTipo=tk.Entry(tab1, font=("", 15))
@@ -152,6 +157,7 @@ label4.grid(row=3, column=0, sticky="w", padx=10)
 
 entryPreco=tk.Entry(tab1, font=("", 15))
 entryPreco.grid(row=3, column=1, sticky="nsew", padx=10, pady=5)
+
 
 
 
@@ -176,6 +182,9 @@ tk.Button(tab1, text="Salvar", font=("", 15), command=cadastraMadeira).grid(row=
 listbox=tk.Listbox(tab2)
 listbox.config(font=("", 15))
 listbox.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+
+
+
 tk.Button(tab2, text="Atualizar", font=("", 15), command=atualizaListabox).grid(row=1, column=0)
 
 janela.mainloop()

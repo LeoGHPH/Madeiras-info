@@ -1,16 +1,20 @@
 from madeira import Madeira
 class Eucalipto(Madeira):
-    def __init__(self, tipo, peso, preco):
-        super().__init__(tipo, peso)
-        self._preco=preco
+    def __init__(self, tipo, peso, preco, data, total):
+        super().__init__(tipo, peso, preco, data)
+        self._data=data
 
-    def setPreco(self, preco):
-        self._preco=preco
-  
-    def getPreco(self):
-        return self._preco
+    def getData(self):
+        return self._data
+    
+    def setData(self, data):
+        self._data=data
+
+    
+
+
 
     def mostrar(self):
-        return (f"Tipo de madeira: {self.getTipo()}, Peso: {self.getPeso()}, Preço {self.getPreco()}")
+        return (f"Data: {self.getData()}, Tipo de madeira: {self.getTipo()}, Peso: {self.getPeso()}, Preço {self.getPreco()}, TOTAL DA PESAGEM: {self.getTotal()}")
 
-e = Eucalipto("Eucalipto", "x ton", 11)
+e = Eucalipto("Eucalipto", "x ton", 11, "xx/xx/xx", 1)
