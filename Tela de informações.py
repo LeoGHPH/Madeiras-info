@@ -19,6 +19,8 @@ def cadastraMadeira():
     peso=entryPeso.get()
     preco=entryPreco.get()
     data=entryData.get()
+
+
     
    
     erro=0
@@ -101,6 +103,7 @@ def atualizaListabox():
     listbox.delete(0, tk.END)
     for obj in lista:
         listbox.insert(tk.END, obj.mostrar())
+
 
 
         

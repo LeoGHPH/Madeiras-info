@@ -1,9 +1,9 @@
 from madeira import Madeira
 class Descricao(Madeira):
-    def __init__(self, tipo, peso, preco, data, total):
-        super().__init__(tipo, peso, preco, data)
+    def __init__(self, tipo, peso, preco, data):
+        super().__init__(tipo, peso, preco)
         self._data=data
-        self._total=total
+      
 
     def setData(self, data):
         self._data=data
@@ -18,8 +18,8 @@ class Descricao(Madeira):
   
     
     def mostrar(self):
-        return (f"Data: {self.getData()}, Total {self.getTotal()}")
+        return (f"Data: {self.getData()}")
 
-d = Descricao("Eucalipto", "x", "x", "xx/xx/xxxx", "x" )
+d = Descricao("Eucalipto", "x", "x", "xx/xx/xxxx",  )
 print(d.mostrar())
 

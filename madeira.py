@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
 
 class Madeira(ABC):
-  def __init__(self, tipo, peso, preco, total):
+  def __init__(self, tipo, peso, preco):
     self._tipo=tipo
     self._peso=peso
     self._preco=preco
-    self._total=total
+   
    
     
     
@@ -20,9 +20,7 @@ class Madeira(ABC):
   def getPreco(self):
     return self._preco
   
-  def getTotal(self):
-    return self._total
-    
+  
   
   
 
@@ -35,9 +33,7 @@ class Madeira(ABC):
   def setPreco(self, preco):
     self._preco=preco
 
-  def setTotal(self, total):
-        self._total=total
-
+  
 
   
   
